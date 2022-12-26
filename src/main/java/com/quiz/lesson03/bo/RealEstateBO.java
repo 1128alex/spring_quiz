@@ -10,10 +10,17 @@ import com.quiz.lesson03.model.RealEstate;
 public class RealEstateBO {
 
 	@Autowired
-
 	private RealEstateDAO realEstateDAO;
 
-	public RealEstate getRealEstate() {
-		return realEstateDAO.selectRealEstate();
+	public RealEstate getRealEstate(int id) {
+		return realEstateDAO.selectRealEstate(id);
+	}
+
+	public int addRealEstate(RealEstate realEstate) {
+		return realEstateDAO.insertRealEstate(realEstate);
+	}
+
+	public int addRealEstateAsField(int realtorId, String address, int area, String type, int price, int rentPrice) {
+		return realEstateDAO.insertRealEstateAsField(realtorId, address, area, type, price, rentPrice);
 	}
 }

@@ -7,7 +7,7 @@
 		resultType="com.quiz.lesson02.model.Store">
 		SELECT
 		*
-		from
+		FROM
 		`store`
 	</select>
 </mapper>
