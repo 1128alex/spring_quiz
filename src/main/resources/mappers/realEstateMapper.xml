@@ -7,7 +7,7 @@
 		resultType="com.quiz.lesson03.model.RealEstate">
 		SELECT
 		`id`
-		,`realtorId`
+		,`realtor_id`
 		,`address`
 		,`area`
 		,`type`
@@ -25,7 +25,7 @@
 		parameterType="com.quiz.lesson03.model.RealEstate">
 		INSERT INTO `real_estate`
 		(
-		`realtorId`
+		`realtor_id`
 		,`address`
 		,`area`
 		,`type`
@@ -36,7 +36,7 @@
 		)
 		VALUES
 		(
-		#{realtorId}
+		#{realtor_id}
 		,#{address}
 		,#{area}
 		,#{type}
@@ -51,7 +51,7 @@
 		INSERT INTO
 		`real_estate`
 		(
-		`realtorId`
+		`realtor_id`
 		,`address`
 		,`area`
 		,`type`
@@ -62,7 +62,7 @@
 		)
 		VALUES
 		(
-		#{realtorId}
+		#{realtor_id}
 		,#{address}
 		,#{area}
 		,#{type}

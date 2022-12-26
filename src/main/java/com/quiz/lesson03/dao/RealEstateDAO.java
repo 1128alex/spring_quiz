@@ -11,7 +11,7 @@ public interface RealEstateDAO {
 
 	public int insertRealEstate(RealEstate realEstate);
 
-	public int insertRealEstateAsField(@Param("realtorId") int realtorId, @Param("address") String address,
+	public int insertRealEstateAsField(@Param("realtor_id") int realtor_id, @Param("address") String address,
 			@Param("area") int area, @Param("type") String type, @Param("price") int price,
 			@Param("rentPrice") int rentPrice);
 }
