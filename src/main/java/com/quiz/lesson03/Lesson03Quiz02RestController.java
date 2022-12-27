@@ -18,7 +18,7 @@ public class Lesson03Quiz02RestController {
 	@RequestMapping("/1")
 	public String quiz02_1() {
 		RealEstate realEstate = new RealEstate();
-		realEstate.setRealtorId(3);
+		realEstate.setRealtor_id(3);
 		realEstate.setAddress("푸르지용 리버 303동 1104호");
 		realEstate.setArea(89);
 		realEstate.setType("매매");
