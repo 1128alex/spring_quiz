@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Add Seller</title>
+<title>Last Seller Info</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
 	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 	crossorigin="anonymous"></script>
@@ -26,23 +26,10 @@
 </head>
 <body>
 	<div class="container">
-		<h1>판매자 추가</h1>
-
-		<form method="post" action="/lesson04/quiz01/2">
-			<div class="form-group">
-				<label for="nickname">닉네임</label> <input type="text" id="nickname"
-					name="nickname" class="form-control col-3">
-			</div>
-			<div class="form-group">
-				<label for="profileUrl">프로필 사진 url</label> <input type="text"
-					id="profileUrl" name="profileUrl" class="form-control col-11">
-			</div>
-			<div class="form-group">
-				<label for="temp">온도</label> <input type="text" id="temp"
-					name="temp" class="form-control col-3">
-			</div>
-			<button type="submit" class="btn btn-primary">추가</button>
-		</form>
+		<h1 class="font-weight-bold">판매자 정보</h1>
+		<img alt="profile image" src="${seller.profileImageUrl}" height="100">
+		<h1>${seller.nickname}</h1>
+		<h3 class="font-weight-bold text-warning">${seller.temperature}</h3>
 	</div>
 </body>
 </html>

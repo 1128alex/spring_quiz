@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.quiz.lesson04.bo.SellerBO;
@@ -18,7 +19,7 @@ public class Lesson04Quiz01Controller {
 	@Autowired
 	private SellerBO sellerBO;
 
-	@GetMapping("/add_seller")
+	@RequestMapping(path = "/add_seller", method = RequestMethod.GET)
 	public String addSellerView() {
 		return "lesson04/add_seller";
 	}
@@ -30,11 +31,18 @@ public class Lesson04Quiz01Controller {
 		return "lesson04/after_add_seller";
 	}
 
-//	@PostMapping("/seller_info")
-//	public String getLastSeller(Model model) {
-//		Seller seller = sellerBO.getLastSeller();
-//		
-//		model
-//	}
+	@GetMapping("/seller_info")
+	public String getLastSeller(@RequestParam(value = "id", required = false) Integer id, Model model) {
+		Seller seller = null;
+		if (id == null) {
+			seller = sellerBO.getLastSeller();
+			model.addAttribute("seller", seller);
+		} else {
+			seller = sellerBO.getSellerById(id);
+		}
+		model.addAttribute("seller", seller);
+
+		return "lesson04/last_seller_info";
+	}
 
 }
