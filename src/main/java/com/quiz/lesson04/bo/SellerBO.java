@@ -10,7 +10,7 @@ public class SellerBO {
 	@Autowired
 	private SellerDAO sellerDAO;
 
-	public void addSeller(String nickname, String profileUrl, double temp) {
+	public void addSeller(String nickname, String profileUrl, Double temp) {
 		sellerDAO.insertSeller(nickname, profileUrl, temp);
 	}
 

@@ -7,8 +7,8 @@
 		insert into `seller`
 		(
 		`nickname`
-		,`profileUrl`
-		,`temp`
+		,`profileImageUrl`
+		,`temperature`
 		,`createdAt`
 		,`updatedAt`
 		)
