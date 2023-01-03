@@ -1,6 +1,7 @@
 package com.quiz.lesson05;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,10 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.quiz.lesson05.bo.WeatherHistoryBO;
 import com.quiz.lesson05.model.Member;
+import com.quiz.lesson05.model.WeatherHistory;
 
 @RequestMapping("/lesson05")
 @Controller
@@ -187,8 +192,24 @@ public class Lesson05QuizController {
 	private WeatherHistoryBO weatherHistoryBO;
 
 	@GetMapping("/quiz05")
-	public String quiz05() {
-//		weatherHistoryBO.getWeatherHistory();
+	public String quiz05(Model model) {
+		List<WeatherHistory> wh = weatherHistoryBO.getWeatherHistory();
+		model.addAttribute("wh", wh);
+		return "lesson05/quiz05";
+	}
+
+	@GetMapping("/quiz05_1")
+	public String quiz05_1() {
+		return "lesson05/quiz05_insert";
+	}
+
+	@PostMapping("/quiz05_insert")
+	public String quiz05_insert(@ModelAttribute WeatherHistory wh, @RequestParam("date1") Date date, Model model) {
+
+		weatherHistoryBO.addWeatherHistory(wh, date);
+
+		model.addAttribute("wh", wh);
+
 		return "lesson05/quiz05";
 	}
 

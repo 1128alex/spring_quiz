@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<!-- Core -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!--Formatting-->
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!-- Function -->
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +39,6 @@
 			</aside>
 			<div class="col-10 h-100 mr-3 ml-3 mt-3">
 				<jsp:include page="quiz05_section.jsp" />
-				<jsp:include page="quiz05_insert.jsp" />
 			</div>
 		</section>
 		<footer>
@@ -45,7 +50,6 @@
 					Rights RESERVED.
 				</address>
 			</div>
-
 		</footer>
 	</div>
 </body>

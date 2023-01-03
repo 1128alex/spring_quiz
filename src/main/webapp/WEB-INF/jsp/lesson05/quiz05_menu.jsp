@@ -6,9 +6,9 @@
 		<img alt="logo" src="/img/lesson05/kmalogo.jpg" height="30">
 	</div>
 	<ul class="nav">
-		<li class="nav-item"><a href=""
+		<li class="nav-item"><a href="/lesson05/quiz05"
 			class="nav-link text-white font-weight-bold pl-0 mr-5">날씨</a></li>
-		<li class="nav-item"><a href=""
+		<li class="nav-item"><a href="/lesson05/quiz05_1"
 			class="nav-link text-white font-weight-bold pl-0">날씨입력</a></li>
 		<li class="nav-item"><a href=""
 			class="nav-link text-white font-weight-bold pl-0">테마날씨</a></li>
