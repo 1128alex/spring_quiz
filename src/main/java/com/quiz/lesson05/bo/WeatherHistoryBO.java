@@ -1,6 +1,5 @@
 package com.quiz.lesson05.bo;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +18,8 @@ public class WeatherHistoryBO {
 		return weatherHistoryDAO.selectWeatherHistory();
 	}
 
-	public void addWeatherHistory(WeatherHistory wh, Date date) {
-		weatherHistoryDAO.insertWeatherHistory(wh, date);
+	public void addWeatherHistory(WeatherHistory wh) {
+		weatherHistoryDAO.insertWeatherHistory(wh);
 	}
 
 }

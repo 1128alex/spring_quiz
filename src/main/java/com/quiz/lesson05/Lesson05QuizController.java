@@ -1,5 +1,7 @@
 package com.quiz.lesson05;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -204,13 +206,17 @@ public class Lesson05QuizController {
 	}
 
 	@PostMapping("/quiz05_insert")
-	public String quiz05_insert(@ModelAttribute WeatherHistory wh, @RequestParam("date1") Date date, Model model) {
+	public String quiz05_insert(@ModelAttribute WeatherHistory wh, @RequestParam("date1") String string, Model model)
+			throws ParseException {
 
-		weatherHistoryBO.addWeatherHistory(wh, date);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
+		Date date = sdf.parse(string);
 
-		model.addAttribute("wh", wh);
+		wh.setDate(date);
 
-		return "lesson05/quiz05";
+		weatherHistoryBO.addWeatherHistory(wh);
+
+		return "redirect:/lesson05/quiz05";
 	}
 
 	@GetMapping("/quiz06")

@@ -9,7 +9,7 @@
 		`id`
 		,`date`
 		,`weather`
-		,`temperature`
+		,`temperatures`
 		,`precipitation`
 		,`microDust`
 		,`windSpeed`
@@ -19,15 +19,14 @@
 		`weather_history`
 	</select>
 
-	<insert id="insertWeatherHistory"
-		parameterType="com.quiz.lesson05.model.WeatherHistory"
+	<insert id="insertWeatherHistory" parameterType="map"
 		useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO
 		`weather_history`
 		(
 		`date`
 		,`weather`
-		,`temperature`
+		,`temperatures`
 		,`precipitation`
 		,`microDust`
 		,`windSpeed`
@@ -38,7 +37,7 @@
 		(
 		#{date}
 		,#{weather}
-		,#{temperature}
+		,#{temperatures}
 		,#{precipitation}
 		,#{microDust}
 		,#{windSpeed}

@@ -6,7 +6,7 @@ public class WeatherHistory {
 	private int id;
 	private Date date;
 	private String weather;
-	private double temperature;
+	private double temperatures;
 	private double precipitation;
 	private String microDust;
 	private double windSpeed;
@@ -37,12 +37,12 @@ public class WeatherHistory {
 		this.weather = weather;
 	}
 
-	public double getTemperature() {
-		return temperature;
+	public double getTemperatures() {
+		return temperatures;
 	}
 
-	public void setTemperature(double temperature) {
-		this.temperature = temperature;
+	public void setTemperatures(double temperatures) {
+		this.temperatures = temperatures;
 	}
 
 	public double getPrecipitation() {

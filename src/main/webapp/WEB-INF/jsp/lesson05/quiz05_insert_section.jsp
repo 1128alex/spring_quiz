@@ -12,10 +12,8 @@
 	<form method="post" action="/lesson05/quiz05_insert">
 		<div class="d-flex justify-content-between insertContainer">
 			<div class="d-flex align-items-center justify-content-end col-5">
-				<label>날짜 </label><input type="text" id="datePicker"
-					name="dateString" class="form-control ml-2 col-8">
-				<fmt:parseDate value="${dateString}" var="date"
-					pattern="yyyy년 MM월 dd일" />
+				<label>날짜 </label><input type="text" id="datePicker" name="date1"
+					class="form-control ml-2 col-8">
 			</div>
 			<div class="d-flex align-items-center justify-content-end insertBox">
 				<label>날씨</label> <select name="weather"
@@ -38,7 +36,7 @@
 		</div>
 		<div class="d-flex justify-content-between insertContainer">
 			<div class="d-flex align-items-center justify-content-end pr-0 col-4">
-				<label>기온</label> <input name="temperature" type="text"
+				<label>기온</label> <input name="temperatures" type="text"
 					class="form-control ml-2 col-7">
 			</div>
 			<div class="d-flex align-items-center justify-content-end pr-0 col-4">
