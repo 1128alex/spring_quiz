@@ -188,7 +188,7 @@ public class Lesson05QuizController {
 
 	@GetMapping("/quiz05")
 	public String quiz05() {
-		weatherHistoryBO.getWeatherHistory();
+//		weatherHistoryBO.getWeatherHistory();
 		return "lesson05/quiz05";
 	}
 

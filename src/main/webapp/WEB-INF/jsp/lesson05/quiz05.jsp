@@ -23,61 +23,30 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 	crossorigin="anonymous"></script>
-
-<style>
-.logo {
-	height: 50px;
-}
-
-section {
-	height: 1000px;
-}
-
-footer {
-	height: 100px;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="/css/lesson05/style.css">
 </head>
 <body>
 	<div class="container">
 		<section class="d-flex">
-			<nav class="col-2 h-100 bg-danger">
-				<div class="logo bg-primary"></div>
-				<ul class="">
-					<li>날씨</li>
-					<li>날씨입력</li>
-					<li>테마날씨</li>
-					<li>관측 기후</li>
-				</ul>
-			</nav>
-			<div class="col-10 h-100">
-				<h3>과거 날씨</h3>
-				<table class="table text-center">
-					<thead>
-						<tr>
-							<th>날짜</th>
-							<th>날씨</th>
-							<th>기온</th>
-							<th>강수량</th>
-							<th>미세먼지</th>
-							<th>풍속</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-					</tbody>
-
-				</table>
+			<aside class="col-2">
+				<jsp:include page="quiz05_menu.jsp" />
+			</aside>
+			<div class="col-10 h-100 mr-3 ml-3 mt-3">
+				<jsp:include page="quiz05_section.jsp" />
+				<jsp:include page="quiz05_insert.jsp" />
 			</div>
 		</section>
-		<footer class="bg-secondary"></footer>
+		<footer>
+			<div class="d-flex">
+				<img alt="logo" src="/img/lesson05/kmalogo.jpg" height="45"
+					class="footerLogo ml-3 mt-3 mr-4" style="opacity: 0.5">
+				<address class="mt-3 ml-4">
+					(07062) 서울시 동작구 여의대방로16길 61 <br> Copyright@2020 KMA. All
+					Rights RESERVED.
+				</address>
+			</div>
+
+		</footer>
 	</div>
 </body>
 </html>
