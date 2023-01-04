@@ -18,16 +18,17 @@
 		,#{url}
 		,NOW()
 		,NOW()
-		)
+		);
 	</insert>
-	<select id="selectBookmark" resultType="list">
-		SELECT
-		`id`
-		,`name`
-		,`url`
-		,`createdAt`
-		,`updatedAt`
-		FROM
-		`bookmark`
+	<select id="selectBookmark"
+	resultType="com.quiz.lesson06.model.Bookmark">
+	SELECT
+	`id`
+	,`name`
+	,`url`
+	,`createdAt`
+	,`updatedAt`
+	FROM
+	`bookmark`;
 	</select>
 </mapper>

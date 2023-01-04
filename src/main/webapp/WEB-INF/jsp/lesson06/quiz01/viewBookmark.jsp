@@ -29,7 +29,7 @@
 <body>
 	<div class="container">
 		<h1>즐겨찾기 목록</h1>
-		<table class="table text-center">
+		<table class="table">
 			<thead>
 				<tr>
 					<th>No.</th>
@@ -38,11 +38,11 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="bookmark" items="${bookmark}" varStatus="status">
+				<c:forEach var="bookmark" items="${bookmarks}" varStatus="status">
 					<tr>
 						<td>${status.count}</td>
 						<td>${bookmark.name}</td>
-						<td>${bookmark.url}</td>
+						<td><a href="${bookmark.url}">${bookmark.url}</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
