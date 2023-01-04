@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -206,11 +207,11 @@ public class Lesson05QuizController {
 	}
 
 	@PostMapping("/quiz05_insert")
-	public String quiz05_insert(@ModelAttribute WeatherHistory wh, @RequestParam("date1") String string, Model model)
+	public String quiz05_insert(@ModelAttribute WeatherHistory wh, @RequestParam("date1") Date date, Model model)
 			throws ParseException {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
-		Date date = sdf.parse(string);
+//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
+//		Date date = sdf.parse(date);
 
 		wh.setDate(date);
 
