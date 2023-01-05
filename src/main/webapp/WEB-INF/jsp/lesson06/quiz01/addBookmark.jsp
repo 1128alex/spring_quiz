@@ -32,16 +32,47 @@
 				class="form-control">
 		</div>
 		<br>
-		<div>
-			<label>주소</label> <input type="text" name="url" id="url"
-				class="form-control">
+		<div class="form-group">
+			<label>주소</label>
+			<div class="d-flex">
+				<input type="text" name="url" id="url" class="form-control">
+				<button type="button" id="duplicateCheckBtn" class="btn btn-info">중복확인</button>
+			</div>
 		</div>
-		<br>
+		<small id="urlStatusArea"></small> <br>
 		<button type="button" id="join" class="btn btn-success col-12">추가</button>
 	</div>
 
 	<script>
 		$(document).ready(function() {
+			$('#duplicateCheckBtn').on('click', function() {
+				$('#urlStatusArea').empty();
+
+				let url = $('#url').val().trim();
+
+				$.ajax({
+					//request
+					type : "get",
+					url : "/lesson06/quiz02/url_duplicate_check",
+					data : {
+						"url" : url
+					},
+
+					//response
+					success : function(data) {
+						if (data.is_duplicate){
+							$('#urlStatusArea').append('<span class="text-danger">중복된 url 입니다.</span>');
+						} else{
+							$('#urlStatusArea').append('<span class="text-danger">저장 가능한 url 입니다.</span>');
+						}
+					},
+					error : function(e){
+						alert("에러 " + e);
+					}
+
+				});
+
+			});
 			$('#join').on('click', function() {
 				let name = $('#name').val().trim();
 				if (name.length < 1) {
@@ -52,6 +83,10 @@
 				let url = $('#url').val();
 				if (url.length < 1) {
 					alert("주소를 입력하세요");
+					return;
+				}
+				if ((url.startsWith('https://') == false)&&(url.startsWith('http://') == false)) {
+					alert("유효한 주소가 아닙니다." + url);
 					return;
 				}
 
@@ -66,16 +101,16 @@
 
 					// response
 					success : function(data) {
-						alert(data);
-						location.href = "/lesson06/quiz01/view_bookmark";
+						if (data.result == '성공') {
+							location.href = "/lesson06/quiz01/view_bookmark";
+						}
 					},
 					error : function(e) {
-						alert("에러");
+						alert("에러" + e);
 					}
 				});
 			});
 		});
 	</script>
-
 </body>
 </html>

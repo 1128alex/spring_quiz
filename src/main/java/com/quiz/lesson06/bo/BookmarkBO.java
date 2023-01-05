@@ -22,4 +22,12 @@ public class BookmarkBO {
 		return bookmarkDAO.selectBookmark();
 	}
 
+	public Boolean existCheckByName(String name) {
+		return bookmarkDAO.existCheckByName(name);
+	}
+
+	public Boolean deleteRowById(int delId) {
+		return bookmarkDAO.existCheckByName(delId);
+	}
+
 }

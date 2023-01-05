@@ -12,4 +12,8 @@ public interface BookmarkDAO {
 	public void insertBookmark(@Param("name") String name, @Param("url") String url);
 
 	public List<Bookmark> selectBookmark();
+
+	public Boolean existCheckByName(String name);
+
+	public Boolean deleteRowById(int delId);
 }

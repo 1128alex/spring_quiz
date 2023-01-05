@@ -1,7 +1,8 @@
 package com.quiz.lesson06;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,11 +30,14 @@ public class Lesson06Controller {
 
 	@ResponseBody
 	@PostMapping("/quiz01/adding_bookmark")
-	public String addingBookmark(@RequestParam("name") String name, @RequestParam("url") String url) {
+	public Map<String, String> addingBookmark(@RequestParam("name") String name, @RequestParam("url") String url) {
 
 		bookmarkBO.addBookmark(name, url);
 
-		return "성공";
+		Map<String, String> result = new HashMap<>();
+		result.put("result", "성공");
+
+		return result; // jackson => JSON String
 	}
 
 	@GetMapping("/quiz01/view_bookmark")
@@ -44,6 +48,27 @@ public class Lesson06Controller {
 		model.addAttribute("bookmarks", bookmarks);
 
 		return "lesson06/quiz01/viewBookmark";
+	}
+
+	@ResponseBody
+	@GetMapping("/quiz02/url_duplicate_check")
+	public Map<String, Boolean> urlDuplicateCheck(@RequestParam("url") String url) {
+
+		Map<String, Boolean> result = new HashMap<>();
+		result.put("is_duplicate", bookmarkBO.existCheckByName(url));
+
+		return result;
+	}
+	
+	@ResponseBody
+	@GetMapping("/quiz02/delete_row")
+	public Map<String, Boolean> deleteRow(@RequestParam("delId") String del) {
+		
+		Map<String, Boolean> result = new HashMap<>();
+		int delId = Integer.parseInt(del);
+		result.put("successDel", bookmarkBO.deleteRowById(delId));
+		
+		return result;
 	}
 
 }

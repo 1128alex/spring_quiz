@@ -21,14 +21,32 @@
 		);
 	</insert>
 	<select id="selectBookmark"
-	resultType="com.quiz.lesson06.model.Bookmark">
-	SELECT
-	`id`
-	,`name`
-	,`url`
-	,`createdAt`
-	,`updatedAt`
-	FROM
-	`bookmark`;
+		resultType="com.quiz.lesson06.model.Bookmark">
+		SELECT
+		`id`
+		,`name`
+		,`url`
+		,`createdAt`
+		,`updatedAt`
+		FROM
+		`bookmark`;
 	</select>
+	<select id="existCheckByName" parameterType="String"
+		resultType="boolean">
+		SELECT
+		count(*)
+		FROM
+		`bookmark`
+		WHERE
+		`url`=#{url}
+		;
+	</select>
+
+	<delete id="deleteRowById" parameterType="int">
+		DELETE FROM `bookmark`
+		WHERE
+		`id`=#{id}
+
+
+	</delete>
 </mapper>

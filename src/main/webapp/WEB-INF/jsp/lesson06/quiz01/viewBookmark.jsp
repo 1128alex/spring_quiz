@@ -35,6 +35,7 @@
 					<th>No.</th>
 					<th>이름</th>
 					<th>주소</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -43,10 +44,34 @@
 						<td>${status.count}</td>
 						<td>${bookmark.name}</td>
 						<td><a href="${bookmark.url}">${bookmark.url}</a></td>
+						<td><button type="button" id="delBtn" class="btn btn-danger">삭제</button></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#delBtn').on('click', function() {
+
+				$.ajax({
+					// request
+					type : "get",
+					url : "/lesson06/quiz02/delete_row",
+					data : {"delId",${bookmark.id}},
+					// response
+					success : function(data) {
+						if (data.successDel) {
+							location.href = "/lesson06/quiz01/view_bookmark";
+						}
+					},
+					error : function(e) {
+						alert("에러 " + e);
+					}
+				});
+			})
+		})
+	</script>
 </body>
 </html>
