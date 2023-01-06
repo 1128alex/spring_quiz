@@ -41,5 +41,66 @@
 			<jsp:include page="footer.jsp" />
 		</footer>
 	</div>
+
+	<script type="text/javascript">
+		$(document)
+				.ready(
+						function() {
+							let bannerArr = [
+									"/img/lesson06/test06_banner1.jpg",
+									"/img/lesson06/test06_banner2.jpg",
+									"/img/lesson06/test06_banner3.jpg",
+									"/img/lesson06/test06_banner4.jpg" ];
+							let index = 0;
+							setInterval(function() {
+								$('#banner').attr('src', bannerArr[index]);
+								index++;
+								if (index == 4) {
+									index = 0;
+								}
+							}, 3000);
+
+							$('#checkBtn')
+									.on(
+											'click',
+											function() {
+												let name = $('#name').val()
+														.trim();
+												let phoneNumber = $(
+														'#phoneNumber').val()
+														.trim();
+
+												$
+														.ajax({
+															type : "get",
+															url : "/lesson06/quiz03/check_reserve",
+															data : {
+																"name" : name,
+																"phoneNumber" : phoneNumber
+															},
+															success : function(
+																	data) {
+																alert("이름: "
+																		+ data.name
+																		+ "\n날짜: "
+																		+ data.date
+																				.substring(
+																						0,
+																						10)
+																		+ "\n일수: "
+																		+ data.day
+																		+ "\n인원: "
+																		+ data.headcount
+																		+ "\n상태: "
+																		+ data.state
+																		+ "\n\n*같은 명의로 2번 이상 예약했을시 가장 최근 예약 내역만 나옵니다.");
+															},
+															error : function(e) {
+																alert("예약 내역이 없습니다.");
+															}
+														});
+											});
+						});
+	</script>
 </body>
 </html>

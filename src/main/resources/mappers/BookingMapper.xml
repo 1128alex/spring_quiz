@@ -19,5 +19,60 @@
 		`booking`
 	</select>
 
+	<delete id="deleteReserve" parameterType="int">
+		DELETE FROM
+		`booking`
+		WHERE
+		`id`=#{id}
+	</delete>
+
+
+	<select id="getAlertInfo" parameterType="map"
+		resultType="com.quiz.lesson06.model.Booking">
+		SELECT
+		`id`
+		,`name`
+		,`headcount`
+		,`day`
+		,`date`
+		,`phoneNumber`
+		,`state`
+		,`createdAt`
+		,`updatedAt`
+		FROM
+		`booking`
+		WHERE
+		`name`=#{name}
+		AND
+		`phoneNumber`=#{phoneNumber}
+		ORDER BY
+		`id` DESC
+		LIMIT 1;
+	</select>
+	<insert id="insertReserve"
+		parameterType="com.quiz.lesson06.model.Booking">
+		INSERT INTO `booking`
+		(
+		`name`
+		,`headcount`
+		,`day`
+		,`date`
+		,`phoneNumber`
+		,`state`
+		,`createdAt`
+		,`updatedAt`
+		)
+		VALUES
+		(
+		#{name}
+		,#{headcount}
+		,#{day}
+		,#{date}
+		,#{phoneNumber}
+		,'확정'
+		,NOW()
+		,NOW()
+		);
+	</insert>
 
 </mapper>

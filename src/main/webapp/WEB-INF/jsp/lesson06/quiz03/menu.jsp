@@ -5,7 +5,7 @@
 	<li class="nav-item"><a
 		class="nav-link text-white font-weight-bold" href="">펜션소개</a></li>
 	<li class="nav-item"><a
-		class="nav-link text-white font-weight-bold" href="">객실보기</a></li>
+		class="nav-link text-white font-weight-bold" href="/lesson06/quiz03/3">객실보기</a></li>
 	<li class="nav-item"><a
 		class="nav-link text-white font-weight-bold" href="/lesson06/quiz03/2">예약하기</a></li>
 	<li class="nav-item"><a

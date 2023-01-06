@@ -18,4 +18,16 @@ public class BookingBO {
 		return bookingDAO.selectBookingList();
 	}
 
+	public Boolean deleteReserve(int id) {
+		return bookingDAO.deleteReserve(id);
+	}
+
+	public Booking getAlertInfo(String name, String phoneNumber) {
+		return bookingDAO.getAlertInfo(name, phoneNumber);
+	}
+
+	public Boolean addReserve(Booking booking) {
+		return bookingDAO.insertReserve(booking);
+	}
+
 }

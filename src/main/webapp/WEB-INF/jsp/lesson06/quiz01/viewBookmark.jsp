@@ -81,7 +81,7 @@
 			// 2) data를 이용해서 태그에 임시 저장하기
 			// 태그: data-favorite-id	data- 뒤에 우리가 이름을 정한다.(대문자 절대 안됨)
 			// 스크립트: $(this).data('favorite-id')
-			$('.delBtn').on('click', function() {
+			/* $('.delBtn').on('click', function() {
 				let id = $(this).data;
 
 				$.ajax({
@@ -91,7 +91,7 @@
 						"delId" : delId
 					}
 				});
-			});
+			}); */
 		});
 	</script>
 </body>

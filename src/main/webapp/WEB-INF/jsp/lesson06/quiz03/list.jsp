@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <!-- Core -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!--Formatting-->
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <div class="col-12">
 	<h3 class="text-center font-weight-bold mt-3 mb-3">예약 목록 보기</h3>
@@ -18,15 +20,16 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="booking" items="${bookings }" varStatus="status">
+			<c:forEach var="booking" items="${bookings}" varStatus="status">
 				<c:choose>
 					<c:when test="${booking.state eq '대기중' or booking.state eq '확정'}">
 						<tr>
-							<td>${booking.name }</td>
-							<td>${booking.date }</td>
-							<td>${booking.day }</td>
-							<td>${booking.headcount }</td>
-							<td>${booking.phoneNumber }</td>
+							<td>${booking.name}</td>
+							<td><fmt:formatDate value="${booking.date}"
+									pattern="yyyy년 M월 dd일" /></td>
+							<td>${booking.day}</td>
+							<td>${booking.headcount}</td>
+							<td>${booking.phoneNumber}</td>
 							<td><c:choose>
 									<c:when test="${booking.state eq '대기중'}">
 										<span class="text-info">${booking.state }</span>

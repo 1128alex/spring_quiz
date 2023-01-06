@@ -41,5 +41,30 @@
 			<jsp:include page="footer.jsp" />
 		</footer>
 	</div>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.delBtn').on('click', function() {
+				let delId = $(this).val();
+
+				$.ajax({
+					type : "delete",
+					url : "/lesson06/quiz03/delete_reserve",
+					data : {
+						"id" : delId
+					},
+					success : function(data) {
+						if (data.isDeleted == true) {
+							alert("삭제되었습니다.");
+							location.href = "/lesson06/quiz03/1";
+						}
+					},
+					error : function(e) {
+						alert("삭제실패");
+					}
+				});
+			});
+		});
+	</script>
 </body>
 </html>

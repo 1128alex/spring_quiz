@@ -2,12 +2,15 @@ package com.quiz.lesson06.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Booking {
 	private int id;
 	private String name;
 	private int headcount;
 	private int day;
-	private String date;
+	@DateTimeFormat(pattern = "yy년 mm월 dd일")
+	private Date date;
 	private String phoneNumber;
 	private String state;
 	private Date createdAt;
@@ -45,11 +48,11 @@ public class Booking {
 		this.day = day;
 	}
 
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 
