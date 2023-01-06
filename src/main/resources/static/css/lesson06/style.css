@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+header {
+	height: 100px;
+}
+
+nav {
+	height: 40px;
+	background-color: #e3871f;
+}
+
+footer {
+	height: 100px;
+}
+
+small {
+	color: grey;
+}
+
+.banner {
+	height: 500px;
+}
+
+.reserveCheck {
+	height: 240px;
+}
+
+.reserveCheckForm {
+	background-color: #cf6317;
+}
+
+.infoPage {
+	background-color: #b1520f;
+}

@@ -29,6 +29,9 @@
 <body>
 	<div class="container">
 		<h1>즐겨찾기 목록</h1>
+		<div class="d-flex justify-content-end">
+			<a href="/lesson06/quiz01/add_bookmark_view">북마크 추가하기</a>
+		</div>
 		<table class="table">
 			<thead>
 				<tr>
@@ -44,7 +47,8 @@
 						<td>${status.count}</td>
 						<td>${bookmark.name}</td>
 						<td><a href="${bookmark.url}">${bookmark.url}</a></td>
-						<td><button type="button" id="delBtn" class="btn btn-danger">삭제</button></td>
+						<td><button type="button" class="btn btn-danger delBtn"
+								value="${bookmark.id}">삭제</button></td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -53,13 +57,15 @@
 
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('#delBtn').on('click', function() {
-
+			$('.delBtn').on('click', function() {
+				let delId = $(this).val();
 				$.ajax({
 					// request
-					type : "get",
+					type : "delete",
 					url : "/lesson06/quiz02/delete_row",
-					data : {"delId",${bookmark.id}},
+					data : {
+						"delId" : delId
+					},
 					// response
 					success : function(data) {
 						if (data.successDel) {
@@ -70,8 +76,23 @@
 						alert("에러 " + e);
 					}
 				});
-			})
-		})
+			});
+
+			// 2) data를 이용해서 태그에 임시 저장하기
+			// 태그: data-favorite-id	data- 뒤에 우리가 이름을 정한다.(대문자 절대 안됨)
+			// 스크립트: $(this).data('favorite-id')
+			$('.delBtn').on('click', function() {
+				let id = $(this).data;
+
+				$.ajax({
+					type : "delete",
+					url : "/lesson06/quiz02/delete_row",
+					data : {
+						"delId" : delId
+					}
+				});
+			});
+		});
 	</script>
 </body>
 </html>

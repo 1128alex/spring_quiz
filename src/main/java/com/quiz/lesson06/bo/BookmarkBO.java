@@ -22,12 +22,17 @@ public class BookmarkBO {
 		return bookmarkDAO.selectBookmark();
 	}
 
-	public Boolean existCheckByName(String name) {
-		return bookmarkDAO.existCheckByName(name);
+	public Bookmark getFavoriteByUrl(String name) {
+		List<Bookmark> bookmarkList = bookmarkDAO.getFavoriteByUrl(name);
+
+		if (bookmarkList.isEmpty() == false) {
+			return bookmarkList.get(0);
+		}
+		return null;
 	}
 
 	public Boolean deleteRowById(int delId) {
-		return bookmarkDAO.existCheckByName(delId);
+		return bookmarkDAO.deleteRowById(delId);
 	}
 
 }

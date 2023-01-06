@@ -31,10 +31,14 @@
 		FROM
 		`bookmark`;
 	</select>
-	<select id="existCheckByName" parameterType="String"
-		resultType="boolean">
+	<select id="getFavoriteByUrl" parameterType="String"
+		resultType="com.quiz.lesson06.model.Bookmark">
 		SELECT
-		count(*)
+		`id`
+		,`name`
+		,`url`
+		,`createdAt`
+		,`updatedAt`
 		FROM
 		`bookmark`
 		WHERE
@@ -46,7 +50,5 @@
 		DELETE FROM `bookmark`
 		WHERE
 		`id`=#{id}
-
-
 	</delete>
 </mapper>

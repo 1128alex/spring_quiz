@@ -13,7 +13,7 @@ public interface BookmarkDAO {
 
 	public List<Bookmark> selectBookmark();
 
-	public Boolean existCheckByName(String name);
+	public List<Bookmark> getFavoriteByUrl(String name);
 
-	public Boolean deleteRowById(int delId);
+	public Boolean deleteRowById(int id);
 }
