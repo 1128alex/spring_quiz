@@ -69,7 +69,7 @@
 		,#{day}
 		,#{date}
 		,#{phoneNumber}
-		,'확정'
+		,'대기중'
 		,NOW()
 		,NOW()
 		);

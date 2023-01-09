@@ -53,11 +53,18 @@ public class Lesson06Quiz03Controller {
 
 	@ResponseBody
 	@PostMapping("/reserve")
-	public Map<String, Boolean> insertReserve(@ModelAttribute Booking booking) {
+	public Map<String, Object> insertReserve(@ModelAttribute Booking booking) {
 		Boolean isSuccess = bookingBO.addReserve(booking);
 
-		Map<String, Boolean> result = new HashMap<>();
+		Map<String, Object> result = new HashMap<>();
 		result.put("isSuccess", isSuccess);
+		if (booking != null) {
+			result.put("booking", booking);
+			result.put("code", 1);
+		} else {
+			result.put("code", 500);
+		}
+
 		return result;
 
 	}

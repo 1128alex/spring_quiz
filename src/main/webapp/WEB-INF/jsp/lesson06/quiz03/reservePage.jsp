@@ -105,7 +105,7 @@
 						"phoneNumber" : phoneNumber
 					},
 					success : function(data) {
-						if (data.isSuccess) {
+						if (data.code == 1) {
 							alert("예약되었습니다.");
 							location.href = "/lesson06/quiz03/1";
 						}
@@ -114,8 +114,8 @@
 						alert("에러 " + e);
 					}
 				});
-			})
-		})
+			});
+		});
 	</script>
 </body>
 </html>
